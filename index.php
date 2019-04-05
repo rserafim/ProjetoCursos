@@ -82,7 +82,8 @@
                         <h3><?php echo $nomeCurso; ?></h3>
                         <p><?php echo $infosCursos[0]; ?></p>
                         <p><?php echo $infosCursos[1]; ?></p>
-                        <a href="#" class="btn btn-block btn-success" data-toggle="modal" role="button" data-target="<?php echo "#".$infosCursos[3]?>">Comprar</a>
+                        <a href="#" class="btn btn-block btn-success" data-toggle="modal" role="button"
+                            data-target="<?php echo "#".$infosCursos[3]?>">Comprar</a>
                     </div>
                 </div>
             </div>
@@ -98,28 +99,34 @@
                             <h4 class="modal-title">Preencha os seus dados</h4>
                         </div>
                         <div class="modal-body">
-                            <form>
+                            <h4>Curso de <?php echo $nomeCurso?></h4>
+                            <h4><b>Preço R$ <?php echo $infosCursos[1]?></b></h4>
+                            <form action="validarCompra.php" method="GET">
+                                <input type="hidden" value="<?php echo $nomeCurso; ?>" name="nomeCurso">
+                                <input type="hidden" value="<?php echo $infosCursos[1]; ?>" name="precoCurso">
                                 <div class="input-group col-md-5">
                                     <label for="nomeCompleto">Nome completo</label>
-                                    <input type="text" id="nomeCompleto" class="form-control">
+                                    <input type="text" id="nomeCompleto" name="nomeCompleto" class="form-control">
                                 </div>
                                 <div class="input-group col-md-5">
                                     <label for="cpf">CPF</label>
-                                    <input type="number" id="cpf" class="form-control">
+                                    <input type="number" id="cpf" name="cpf" class="form-control">
                                 </div>
                                 <div class="input-group col-md-5">
                                     <label for="nroCartao">Numero do cartao</label>
-                                    <input type="number" id="nroCartao" class="form-control">
+                                    <input type="number" id="nroCartao" name="nroCartao" class="form-control">
                                 </div>
                                 <div class="input-group col-md-5">
                                     <label for="validadeCartao">Validade</label>
-                                    <input type="month" id="validadeCartao" class="form-control">
+                                    <input type="month" id="validadeCartao" name="validadeCartao" class="form-control">
                                 </div>
                                 <div class="input-group col-md-5">
                                     <label for="cvv">CVV</label>
-                                    <input type="number" id="cvv" class="form-control">
+                                    <input type="number" id="cvv" name="cvv" class="form-control">
                                 </div>
-                            
+                                
+                                <button class="btn btn-primary" type="submit">Comprar já!</button>
+
                             </form>
                         </div>
                         <div class="modal-footer">
